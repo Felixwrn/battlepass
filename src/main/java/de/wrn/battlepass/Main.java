@@ -1,6 +1,8 @@
 package de.wrn.battlepass;
 
 import org.bukkit.*;
+import org.bukkit.command.*;
+import org.bukkit.configuration.file.*;
 import org.bukkit.entity.*;
 import org.bukkit.event.*;
 import org.bukkit.event.block.*;
@@ -9,16 +11,15 @@ import org.bukkit.event.inventory.*;
 import org.bukkit.event.player.*;
 import org.bukkit.inventory.*;
 import org.bukkit.inventory.meta.*;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.*;
 
 public class Main extends JavaPlugin implements Listener, CommandExecutor {
 
     Data data;
+
     Map<UUID, Integer> setupTier = new HashMap<>();
     Map<UUID, String> setupType = new HashMap<>();
     Map<UUID, Integer> cmdMode = new HashMap<>();
@@ -26,7 +27,6 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
     @Override
     public void onEnable() {
         saveDefaultConfig();
-
         data = new Data(this);
 
         getCommand("bp").setExecutor(this);
@@ -40,20 +40,14 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
     public void addXP(UUID u,int a){ data.addXP(u,a); }
 
     public int tier(UUID u){
-        return xp(u)/getConfig().getInt("season.exp-per-tier");
+        return xp(u) / getConfig().getInt("season.exp-per-tier");
     }
 
-    public boolean premium(UUID u){
-        return data.premium(u);
-    }
+    public boolean premium(UUID u){ return data.premium(u); }
 
-    public boolean claimed(UUID u,int t){
-        return data.claimed(u,t);
-    }
+    public boolean claimed(UUID u,int t){ return data.claimed(u,t); }
 
-    public void claim(UUID u,int t){
-        data.claim(u,t);
-    }
+    public void claim(UUID u,int t){ data.claim(u,t); }
 
     // ================= COMMAND =================
 
@@ -139,11 +133,9 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
                 giveReward(p,tier,"premium");
 
             claim(p.getUniqueId(),tier);
-
             p.sendMessage("§aClaimed!");
         }
 
-        // SETUP GUI
         if(e.getView().getTitle().equals("§cBP Setup")){
             e.setCancelled(true);
 
@@ -154,7 +146,6 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
             openType(p);
         }
 
-        // TYPE SELECT
         if(e.getView().getTitle().equals("§cWähle Reward Type")){
             e.setCancelled(true);
 
@@ -171,7 +162,6 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
             }
         }
 
-        // ITEM SAVE
         if(e.getView().getTitle().equals("§aItem setzen")){
             e.setCancelled(true);
 
