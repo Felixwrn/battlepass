@@ -1,0 +1,16 @@
+rewards:
+  1:
+    free:
+      type: ITEM
+      material: DIAMOND
+      amount: 3
+
+    premium:
+      type: COMMAND
+      command: "give %player% emerald 5"
+
+  2:
+    free:
+      type: ITEM
+      material: GOLD_INGOT
+      amount: 5
