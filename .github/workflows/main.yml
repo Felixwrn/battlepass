@@ -1,22 +1,3 @@
-Skip to content
-Felixwrn
-Combatlimtier
-Repository navigation
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security and quality
-Insights
-Settings
-Build Plugin
-Update ListenerClass.java #88
-All jobs
-Run details
-Workflow file for this run
-.github/workflows/main.yml at 242165e
 name: Build Plugin
 
 on: [push]
