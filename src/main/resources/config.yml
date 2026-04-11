@@ -1,0 +1,8 @@
+season:
+  name: "Season 1"
+  max-tier: 50
+  exp-per-tier: 1000
+
+xp:
+  block-break: 5
+  mob-kill: 20

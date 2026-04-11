@@ -1,0 +1,10 @@
+name: wrnpass
+main: de.wrn.battlepass.Main
+version: 1.0
+api-version: '1.21'
+commands:
+  bp:
+    description: BattlePass öffnen
+permissions:
+  battlepass.use:
+    default: true
