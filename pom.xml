@@ -1,12 +1,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0">
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>de.wrn</groupId>
   <artifactId>wrnpass</artifactId>
   <version>1.0</version>
+
   <properties>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
   </properties>
+
+  <!-- 🔥 DAS HAT DIR GEFEHLT -->
+  <repositories>
+    <repository>
+      <id>papermc-repo</id>
+      <url>https://repo.papermc.io/repository/maven-public/</url>
+    </repository>
+  </repositories>
+
   <dependencies>
     <dependency>
       <groupId>io.papermc.paper</groupId>
