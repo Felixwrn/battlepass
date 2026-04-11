@@ -1,6 +1,6 @@
 package de.wrn.battlepass;
 
-import org.bukkit.configuration.file.*;
+import org.bukkit.*;
 import java.io.File;
 import java.util.UUID;
 
