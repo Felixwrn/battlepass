@@ -1,6 +1,8 @@
 package de.wrn.battlepass;
 
 import org.bukkit.*;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 public class Rewards {
 
