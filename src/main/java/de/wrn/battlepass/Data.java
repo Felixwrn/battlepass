@@ -1,8 +1,6 @@
 package de.wrn.battlepass;
 
-import org.bukkit.*;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.configuration.file.*;
 import java.io.File;
 import java.util.UUID;
 
@@ -17,9 +15,7 @@ public class Data {
         cfg = YamlConfiguration.loadConfiguration(file);
     }
 
-    public int getXP(UUID u){
-        return cfg.getInt("xp."+u,0);
-    }
+    public int getXP(UUID u){ return cfg.getInt("xp."+u,0); }
 
     public void addXP(UUID u,int a){
         cfg.set("xp."+u,getXP(u)+a);
