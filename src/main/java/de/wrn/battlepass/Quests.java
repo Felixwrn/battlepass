@@ -1,5 +1,6 @@
 package de.wrn.battlepass;
 
+import org.bukkit.*;
 import org.bukkit.Material;
 import org.bukkit.entity.*;
 
