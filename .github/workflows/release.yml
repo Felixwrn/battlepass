@@ -1,0 +1,32 @@
+name: Publish Minecraft 26.3 release
+
+on:
+  push:
+    tags: ['mc26.3*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - name: Build release JAR
+        run: mvn --batch-mode --no-transfer-progress clean verify
+      - name: Generate SHA-256 checksum
+        working-directory: target
+        run: sha256sum wrnpass-1.0.jar > SHA256SUMS
+      - name: Publish JAR and checksum
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: >-
+          gh release create "$RELEASE_TAG" --verify-tag
+          --title "WRN BattlePass – Minecraft 26.3"
+          --notes-file .github/release-notes-mc26.3.md --latest
+          target/wrnpass-1.0.jar target/SHA256SUMS
